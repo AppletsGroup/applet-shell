@@ -1,22 +1,22 @@
 import React, { createContext, type ReactNode, useContext, useState } from 'react'
 
-export interface NavigationContxtType {
+export interface AppletContxtType {
   headerTitle: string | undefined
   setHeaderTitle: (title: string | undefined) => void
   headerRightActions: ReactNode | undefined
   setHeaderRightActions: (actions: ReactNode | undefined) => void
 }
 
-export const NavigationContext = createContext<NavigationContxtType | undefined>(undefined)
+export const AppletContext = createContext<AppletContxtType | undefined>(undefined)
 
-export const useAppletNavigation = () => useContext(NavigationContext)
+export const useApplet = () => useContext(AppletContext)
 
-export default function NavigationProvider(props: { children: React.ReactNode }) {
+export default function AppletProvider(props: { children: React.ReactNode }) {
   const [headerRightActions, setHeaderRightActions] = useState<ReactNode | undefined>(undefined)
   const [headerTitle, setHeaderTitle] = useState<string | undefined>(undefined)
 
   return (
-    <NavigationContext.Provider
+    <AppletContext.Provider
       value={{
         headerTitle,
         setHeaderTitle,
@@ -24,6 +24,6 @@ export default function NavigationProvider(props: { children: React.ReactNode })
         setHeaderRightActions
       }}>
       {props.children}
-    </NavigationContext.Provider>
+    </AppletContext.Provider>
   )
 }

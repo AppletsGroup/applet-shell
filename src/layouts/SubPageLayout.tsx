@@ -1,10 +1,10 @@
 import { Outlet, useNavigate } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
-import { useAppletNavigation } from '../Provider'
+import { useApplet } from '../Provider'
 
 export function SubPageLayout() {
   const navigate = useNavigate()
-  const navigation = useAppletNavigation()
+  const applet = useApplet()
 
   const navigteBack = () => {
     navigate(-1)
@@ -18,9 +18,9 @@ export function SubPageLayout() {
           className="text-gray-600 flex items-center">
           <FiArrowLeft className="inline-block mr-2" />
         </div>
-        <h1 className="text-lg font-semibold flex justify-center items-center flex-1 mr-auto ml-auto">{navigation?.headerTitle}</h1>
+        <h1 className="text-lg font-semibold flex justify-center items-center flex-1 mr-auto ml-auto">{applet?.headerTitle}</h1>
         <div id="right-actions">
-          {navigation?.headerRightActions}
+          {applet?.headerRightActions}
         </div>
       </div>
       <Outlet />
