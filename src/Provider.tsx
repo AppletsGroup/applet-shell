@@ -11,7 +11,7 @@ export const AppletContext = createContext<AppletContxtType | undefined>(undefin
 
 export const useApplet = () => useContext(AppletContext)
 
-export default function AppletProvider(props: { children: React.ReactNode }) {
+export function AppletProvider(props: { children: React.ReactNode }) {
   const [headerRightActions, setHeaderRightActions] = useState<ReactNode | undefined>(undefined)
   const [headerTitle, setHeaderTitle] = useState<string | undefined>(undefined)
 

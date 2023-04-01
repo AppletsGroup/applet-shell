@@ -3,7 +3,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import { appletStore } from 'applet-store'
 import { Provider } from 'react-redux'
 
-import { DefaultLayout, SubPageLayout } from '../../src/index'
+import { AppletProvider,  DefaultLayout, SubPageLayout } from '../../src/index'
 import LandingPage from './pages/LandingPage'
 import DetailPage from './pages/DetailPage'
 
@@ -37,9 +37,11 @@ const router = createBrowserRouter(
 
 const App: React.FC = () => {
   return (
-    <Provider store={appletStore}>
-      <RouterProvider router={router} />
-    </Provider>
+    <AppletProvider>
+      <Provider store={appletStore}>
+        <RouterProvider router={router} />
+      </Provider>
+    </AppletProvider>
   )
 }
 
