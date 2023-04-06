@@ -1,16 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector, user } from 'applet-store'
 import { Menu } from '../types'
-
-const { logout } = user
+import { useApplet } from '../Provider'
 
 export default function MobileNavigation ({ onSelectMenu, menus }: { onSelectMenu: () => void, menus: Menu[] }) {
-  const userProfile = useAppSelector((state) => state.user.profile)
-  const dispatch = useAppDispatch()
+  const applet = useApplet()
+  const userProfile = applet?.profile
   const navigate = useNavigate()
 
   const logOut = () => {
-    dispatch(logout())
+    applet?.logOut()
     navigate('/')
   }
 

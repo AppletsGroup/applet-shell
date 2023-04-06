@@ -1,26 +1,15 @@
-
-import { useEffect } from 'react'
-import { useAppSelector, useAppDispatch, user } from 'applet-store'
 import { Dropdown } from 'applet-design'
 import { Link, useNavigate } from 'react-router-dom'
-
-const { fetchProfile, logout } = user
+import { useApplet } from '../Provider'
 
 export default function CurrentUser () {
-  const userProfile = useAppSelector((state) => state.user.profile)
-  const dispatch = useAppDispatch()
+  const applet = useApplet()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const initProfile = () => {
-      void dispatch(fetchProfile())
-    }
-
-    initProfile()
-  }, [dispatch])
+  const userProfile = applet?.profile
 
   const logOut = () => {
-    dispatch(logout())
+    applet?.logOut()
     navigate('/')
   }
 
@@ -28,7 +17,7 @@ export default function CurrentUser () {
     window.location.href = `https://auth.applets.group?redirectUrl=${location.href}`
   }
 
-  if (userProfile == null) {
+  if (!userProfile) {
     return (
       <div
         onClick={handleGotoAuthPage}
