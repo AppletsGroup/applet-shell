@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { Outlet, ScrollRestoration, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from '../components/Header'
@@ -58,7 +58,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
             <Outlet />
           </motion.div>
         )}
-        {!drawerOpen && <Outlet />}
+        {!drawerOpen && (<Suspense fallback={<div>loading...</div>}><Outlet /></Suspense>)}
       </AnimatePresence>
       <ScrollRestoration />
     </>

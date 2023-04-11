@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 import { useApplet } from '../Provider'
+import { Suspense } from 'react'
 
 export function SubPageLayout() {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ export function SubPageLayout() {
           {applet?.headerRightActions}
         </div>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>loading...</div>}><Outlet /></Suspense>
     </>
   )
 }
