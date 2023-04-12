@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Drawer from '../components/Drawer'
 import MobileNavigation from '../components/MobileNavigation'
 import { Menu } from '../types'
+import Loading from '../components/Loading'
 
 export interface DefaultLayoutProps {
   menus: Menu[];
@@ -58,7 +59,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
             <Outlet />
           </motion.div>
         )}
-        {!drawerOpen && (<Suspense fallback={<div>loading...</div>}><Outlet /></Suspense>)}
+        {!drawerOpen && (<Suspense fallback={<Loading />}><Outlet /></Suspense>)}
       </AnimatePresence>
       <ScrollRestoration />
     </>
