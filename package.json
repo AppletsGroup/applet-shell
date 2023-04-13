@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@use-gesture/react": "^10.2.26",
     "applet-apis": "^0.0.13",
     "applet-design": "^0.0.21",
     "applet-types": "^0.0.4",
