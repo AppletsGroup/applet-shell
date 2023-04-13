@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMobileMenuClick, title, menus }) => {
   return (
-    <div className="bg-white text-gray-900 py-4 px-4 md:px-8">
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white py-4 px-4 md:px-8">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <div className="md:hidden flex items-center">
@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ onMobileMenuClick, title, menus }) => {
               aria-label="Toggle menu"
             >
               <svg
-                className="fill-current h-6 w-6 text-blue-400"
+                className="fill-current h-6 w-6 text-blue-400 dark:text-blue-300"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onMobileMenuClick, title, menus }) => {
           </div>
           <Link
             to="/"
-            className="text-xl font-bold uppercase tracking-wider text-blue-400"
+            className="text-xl font-bold uppercase tracking-wider text-blue-400 dark:text-blue-300"
           >
             {title}
           </Link>
