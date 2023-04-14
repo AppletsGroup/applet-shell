@@ -40,8 +40,10 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
       const currentX = event.touches[0].clientX;
       const diff = currentX - startX;
 
-      if (diff > 0) {
+      if (diff > 50) {
         setDrawerOpen(true);
+      } else if (diff < -100) {
+        setDrawerOpen(false);
       }
     };
 
@@ -76,7 +78,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   }
 
   return (
-    <div ref={drawerRef}>
+    <div ref={drawerRef} className="min-h-screen">
       <Header onMobileMenuClick={toggleDrawer} title={title} menus={menus} />
       <Drawer
         open={drawerOpen}
