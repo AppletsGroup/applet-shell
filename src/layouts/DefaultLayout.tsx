@@ -4,63 +4,62 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Header from '../components/Header'
 import Drawer from '../components/Drawer'
 import MobileNavigation from '../components/MobileNavigation'
-import { Menu } from '../types'
+import { type Menu } from '../types'
 import Loading from '../components/Loading'
 
 export interface DefaultLayoutProps {
-  menus: Menu[];
-  title: string;
+  menus: Menu[]
+  title: string
 }
 
 export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const drawerRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null)
 
   const token = searchParams.get('token')
   if (token) {
     localStorage.setItem('TOKEN', token)
   }
 
-
   useEffect(() => {
-    const element = drawerRef.current;
+    const element = drawerRef.current
 
-    let startX: number | null = null;
+    let startX: number | null = null
 
     const handleTouchStart = (event: TouchEvent) => {
-      startX = event.touches[0].clientX;
-    };
+      startX = event.touches[0].clientX
+    }
 
     const handleTouchMove = (event: TouchEvent) => {
       if (startX === null) {
-        return;
+        return
       }
 
-      const currentX = event.touches[0].clientX;
-      const diff = currentX - startX;
+      const currentX = event.touches[0].clientX
+      const diff = currentX - startX
 
       if (diff > 50) {
-        setDrawerOpen(true);
+        setDrawerOpen(true)
       } else if (diff < -100) {
-        setDrawerOpen(false);
+        setDrawerOpen(false)
       }
-    };
+    }
 
     const handleTouchEnd = () => {
-      startX = null;
-    };
+      startX = null
+    }
 
-    element?.addEventListener('touchstart', handleTouchStart);
-    element?.addEventListener('touchmove', handleTouchMove);
-    element?.addEventListener('touchend', handleTouchEnd);
+    element?.addEventListener('touchstart', handleTouchStart)
+    element?.addEventListener('touchmove', handleTouchMove)
+    element?.addEventListener('touchend', handleTouchEnd)
 
     return () => {
-      element?.removeEventListener('touchstart', handleTouchStart);
-      element?.removeEventListener('touchmove', handleTouchMove);
-      element?.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [drawerRef]);
+      element?.removeEventListener('touchstart', handleTouchStart)
+      element?.removeEventListener('touchmove', handleTouchMove)
+      element?.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [drawerRef])
 
   useEffect(() => {
     if (token) {
@@ -78,17 +77,24 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   }
 
   return (
-    <div ref={drawerRef} className="min-h-screen">
-      <Header onMobileMenuClick={toggleDrawer} title={title} menus={menus} />
+    <div
+      ref={drawerRef}
+      className="min-h-screen">
+      <Header
+        onMobileMenuClick={toggleDrawer}
+        title={title}
+        menus={menus} />
       <Drawer
         open={drawerOpen}
         onClose={toggleDrawer}>
-        <MobileNavigation onSelectMenu={closeDrawer} menus={menus} />
+        <MobileNavigation
+          onSelectMenu={closeDrawer}
+          menus={menus} />
       </Drawer>
       <AnimatePresence>
         {drawerOpen && (
           <motion.div
-            
+
             initial={{ x: 0 }}
             animate={{ x: 250 }}
             exit={{ x: 0 }}

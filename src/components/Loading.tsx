@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaSpinner } from 'react-icons/fa';
+import React from 'react'
+import { FaSpinner } from 'react-icons/fa'
 
 const Loading: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const Loading: React.FC = () => {
       <FaSpinner className="animate-spin mr-2" />
       <span>Loading...</span>
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

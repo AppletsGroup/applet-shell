@@ -17,7 +17,7 @@ export default function CurrentUser () {
     window.location.href = `https://auth.applets.group?redirectUrl=${location.href}`
   }
 
-  if (!userProfile) {
+  if (userProfile == null) {
     return (
       <div
         onClick={handleGotoAuthPage}

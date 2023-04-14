@@ -4,7 +4,7 @@ import { useApplet } from '../Provider'
 import { Suspense } from 'react'
 import Loading from '../components/Loading'
 
-export function SubPageLayout() {
+export function SubPageLayout () {
   const navigate = useNavigate()
   const applet = useApplet()
 

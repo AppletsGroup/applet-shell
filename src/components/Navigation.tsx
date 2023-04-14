@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Menu } from '../types'
+import { type Menu } from '../types'
 import CurrentUser from './CurrentUser'
 import { useApplet } from '../Provider'
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi'
 
 export default function Navigation ({ menus }: { menus: Menu[] }) {
   const applet = useApplet()

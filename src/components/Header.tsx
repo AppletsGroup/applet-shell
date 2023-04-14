@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu } from '../types'
+import { type Menu } from '../types'
 import Navigation from './Navigation'
 
 interface HeaderProps {

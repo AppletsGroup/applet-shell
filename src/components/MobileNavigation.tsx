@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu } from '../types'
+import { type Menu } from '../types'
 import { useApplet } from '../Provider'
 
 export default function MobileNavigation ({ onSelectMenu, menus }: { onSelectMenu: () => void, menus: Menu[] }) {

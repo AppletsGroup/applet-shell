@@ -1,5 +1,5 @@
 import { getProfile } from 'applet-apis'
-import { User } from 'applet-types'
+import { type User } from 'applet-types'
 import React, { createContext, type ReactNode, useContext, useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
@@ -19,7 +19,7 @@ export const AppletContext = createContext<AppletContxtType | undefined>(undefin
 
 export const useApplet = () => useContext(AppletContext)
 
-export function AppletProvider(props: { children: React.ReactNode }) {
+export function AppletProvider (props: { children: React.ReactNode }) {
   const [headerRightActions, setHeaderRightActions] = useState<ReactNode | undefined>(undefined)
   const [headerTitle, setHeaderTitle] = useState<string | undefined>(undefined)
   const [profile, setProfile] = useState<User | undefined>(undefined)
@@ -33,7 +33,7 @@ export function AppletProvider(props: { children: React.ReactNode }) {
       }
     }
 
-    initUser()
+    void initUser()
   }, [])
 
   useEffect(() => {
@@ -54,13 +54,13 @@ export function AppletProvider(props: { children: React.ReactNode }) {
     } else {
       document.documentElement.classList.remove('dark')
     }
-  };
+  }
 
   const logOut = () => {
     localStorage.removeItem('TOKEN')
     setProfile(undefined)
   }
-  
+
   return (
     <AppletContext.Provider
       value={{
