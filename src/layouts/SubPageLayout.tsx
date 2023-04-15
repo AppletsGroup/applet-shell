@@ -14,18 +14,19 @@ export function SubPageLayout () {
 
   return (
     <>
-      <div className="flex justify-between items-center px-4 py-2 bg-gray-100">
+      <div className="flex justify-between items-center px-4 py-2 bg-gray-100 dark:bg-gray-900">
         <div
           onClick={navigteBack}
-          className="text-gray-600 flex items-center">
-          <FiArrowLeft className="inline-block mr-2" />
+          className="text-gray-600 dark:text-white flex items-center">
+          <FiArrowLeft className="inline-block mr-2 dark:text-gray-300" />
         </div>
-        <h1 className="text-lg font-semibold flex justify-center items-center flex-1 mr-auto ml-auto">{applet?.headerTitle}</h1>
+        <h1 className="text-lg font-semibold flex justify-center items-center flex-1 mr-auto ml-auto dark:text-white">{applet?.headerTitle}</h1>
         <div id="right-actions">
           {applet?.headerRightActions}
         </div>
       </div>
       <Suspense fallback={<Loading />}><Outlet /></Suspense>
     </>
+
   )
 }
