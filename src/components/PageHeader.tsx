@@ -11,10 +11,17 @@ export function PageHeader ({ headerTitle, headerRightActions }: PageHeaderProps
   const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
 
   useEffect(() => {
-    if ((applet != null) && !hasConfigNavigation) {
+    if (applet != null && !hasConfigNavigation) {
       applet.setHeaderTitle(headerTitle)
       applet.setHeaderRightActions(headerRightActions)
       setHasConfigNavigation(true)
+    }
+
+    return () => {
+      if (applet != null && hasConfigNavigation) {
+        applet.setHeaderTitle(undefined)
+        applet.setHeaderRightActions(<></>)
+      }
     }
   }, [applet])
 

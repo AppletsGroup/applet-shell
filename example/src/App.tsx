@@ -14,7 +14,7 @@ const menus = [
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route >
+    <Route>
       <Route
         element={(
           <DefaultLayout
