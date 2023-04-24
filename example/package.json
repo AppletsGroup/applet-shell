@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "applet-design-utility": "^0.0.6",
     "applet-store": "^0.0.10",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",

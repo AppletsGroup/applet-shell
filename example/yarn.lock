@@ -523,6 +523,11 @@ applet-apis@^0.0.11:
   resolved "https://registry.yarnpkg.com/applet-apis/-/applet-apis-0.0.11.tgz#51bf494d03c3118989c19038c69292b07824b13c"
   integrity sha512-T2QtESZWUd3GUXGKZPnQ9LFUlIDw9/rgvHuGGhsMsrrOSfCZALfaZuCfWowwZtJOxeribNVUrPzvVsrYdgee+Q==
 
+applet-design-utility@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/applet-design-utility/-/applet-design-utility-0.0.6.tgz#a0b6607fece3a064b14a054700138ca46dc69db2"
+  integrity sha512-XHtKRBSm/pwkuw2hbK2JSbhSf5UNoWhqaeDLmhAM1QYfPSwILvaN0/uNNyjHB/0MDEyJiX40bxLuZqbXFJw/Lg==
+
 applet-store@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/applet-store/-/applet-store-0.0.10.tgz#965f60706c4ef17ee94ab4ad948408a12347fb30"

@@ -1,6 +1,6 @@
 {
   "name": "applet-shell",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

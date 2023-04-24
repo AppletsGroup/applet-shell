@@ -39,7 +39,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
       const currentX = event.touches[0].clientX
       const diff = currentX - startX
 
-      if (diff > 50) {
+      if (diff > 100) {
         setDrawerOpen(true)
       } else if (diff < -100) {
         setDrawerOpen(false)
@@ -62,6 +62,17 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   }, [drawerRef])
 
   useEffect(() => {
+    window.addEventListener('resize', () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    })
+
+    return () => {
+      window.removeEventListener('resize', () => {})
+    }
+  }, [])
+
+  useEffect(() => {
     if (token) {
       searchParams.delete('token')
       setSearchParams(searchParams)
@@ -79,7 +90,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   return (
     <div
       ref={drawerRef}
-      className="pt-20">
+      className="h-inner-height pt-16">
       <Header
         onMobileMenuClick={toggleDrawer}
         title={title}

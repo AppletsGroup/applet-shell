@@ -14,7 +14,7 @@ export default function MobileNavigation ({ onSelectMenu, menus }: { onSelectMen
   }
 
   return (
-    <div className="md:hidden flex flex-col min-h-screen pt-4 bg-white dark:bg-gray-900">
+    <div className="md:hidden flex flex-col h-inner-height pt-4 bg-white dark:bg-gray-900">
       <div className="flex-1">
         <div className="flex items-center justify-center mb-4">
           <img
