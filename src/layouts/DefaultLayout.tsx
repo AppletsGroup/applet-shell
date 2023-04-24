@@ -79,7 +79,7 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   return (
     <div
       ref={drawerRef}
-      className="min-h-screen">
+      className="pt-20">
       <Header
         onMobileMenuClick={toggleDrawer}
         title={title}

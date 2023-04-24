@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMobileMenuClick, title, menus }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white py-4 px-4 md:px-8">
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white py-4 px-4 md:px-8 fixed top-0 left-0 right-0">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <div className="md:hidden flex items-center">
