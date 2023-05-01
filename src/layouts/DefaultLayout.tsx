@@ -88,17 +88,19 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
   }
 
   const closeDrawer = () => {
-    setDrawerOpen(false)
+    if (drawerOpen) setDrawerOpen(false)
   }
 
   return (
     <div
       ref={drawerRef}
       className="h-inner-height pt-16">
-      <Header
-        onMobileMenuClick={toggleDrawer}
-        title={title}
-        menus={menus} />
+      <div onClick={closeDrawer}>
+        <Header
+          onMobileMenuClick={toggleDrawer}
+          title={title}
+          menus={menus} />
+      </div>
       <Drawer
         open={drawerOpen}
         onClose={toggleDrawer}>
@@ -114,11 +116,12 @@ export function DefaultLayout ({ menus, title }: DefaultLayoutProps) {
             animate={{ x: 250 }}
             exit={{ x: 0 }}
             transition={{ duration: 0.3 }}
-            className="relative"
+            className="relative h-inner-height"
           >
             <div
-              className="absolute inset-0 bg-black opacity-5 min-h-screen"
-              onClick={closeDrawer}></div>
+              className="absolute inset-0 bg-white dark:bg-black opacity-25"
+              onClick={closeDrawer}>
+            </div>
             <Outlet />
           </motion.div>
         )}

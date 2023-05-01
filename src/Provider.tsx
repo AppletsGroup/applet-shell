@@ -39,11 +39,17 @@ export function AppletProvider (props: { children: React.ReactNode }) {
   useEffect(() => {
     const localTheme = localStorage.getItem('theme')
     setTheme(localTheme)
+
+    const meta = document.createElement('meta')
+    meta.name = 'apple-mobile-web-app-status-bar-style'
     if (localTheme === 'dark') {
       document.documentElement.classList.add('dark')
+      meta.content = 'black-translucent'
     } else {
       document.documentElement.classList.remove('dark')
+      meta.content = 'default'
     }
+    document.getElementsByTagName('head')[0].appendChild(meta)
   }, [])
 
   const configTheme = (newThemeMode: string) => {
